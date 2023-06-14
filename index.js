@@ -60,11 +60,11 @@ app.get('/user-profile', (req, res) => {
 })
 
 async function start() {
-    // const client = new MongoClient(process.env.MONGODB_URL)
-    // await client.connect()
-    // db = client.db()
+    const client = new MongoClient(process.env.MONGODB_URL)
+    await client.connect()
+    db = client.db()
     app.listen(process.env.PORT, () => {
-        console.log(`Example app listening at http://localhost:${process.env.PORT}`);
+        console.log(`App listening at http://localhost:${process.env.PORT}`);
     })
 }
 start()
