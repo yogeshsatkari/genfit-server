@@ -1,6 +1,9 @@
-const {MongoClient} = require('mongodb')
-const express = require('express')
+import { MongoClient } from 'mongodb';
+import express from 'express';
+import cors from "cors";
+
 const app = express()
+app.use(cors());
 const port = 3001
 let db;
 
@@ -10,17 +13,17 @@ app.get('/', async (req, res) => {
     res.send(user);
 })
 
-app.get('/user', (req, res) => {
-    res.send({
-        user_id: 1,
-        user_name: "",
-        user_email: "",
-        user_password: "",
-        user_role: "",
-        sex: "MALE",
-        age: 34,
-    });
-})
+// app.get('/user', (req, res) => {
+//     res.send({
+//         user_id: 1,
+//         user_name: "",
+//         user_email: "",
+//         user_password: "",
+//         user_role: "",
+//         sex: "MALE",
+//         age: 34,
+//     });
+// })
 
 app.get('/user-profile', (req, res) => {
     res.send({
