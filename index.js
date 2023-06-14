@@ -1,10 +1,10 @@
 import { MongoClient } from 'mongodb';
 import express from 'express';
 import cors from "cors";
+import "dotenv/config"
 
 const app = express()
 app.use(cors());
-const port = 3001
 let db;
 
 app.get('/', async (req, res) => {
@@ -60,11 +60,11 @@ app.get('/user-profile', (req, res) => {
 })
 
 async function start() {
-    const client = new MongoClient('mongodb://localhost:27017/genfitdb')
-    await client.connect()
-    db = client.db()
-    app.listen(port, () => {
-        console.log(`Example app listening at http://localhost:${port}`);
+    // const client = new MongoClient(process.env.MONGODB_URL)
+    // await client.connect()
+    // db = client.db()
+    app.listen(process.env.PORT, () => {
+        console.log(`Example app listening at http://localhost:${process.env.PORT}`);
     })
 }
 start()
