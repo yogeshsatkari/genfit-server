@@ -13,17 +13,17 @@ app.get('/', async (req, res) => {
     res.send(user);
 })
 
-// app.get('/user', (req, res) => {
-//     res.send({
-//         user_id: 1,
-//         user_name: "",
-//         user_email: "",
-//         user_password: "",
-//         user_role: "",
-//         sex: "MALE",
-//         age: 34,
-//     });
-// })
+app.get('/user', (req, res) => {
+    res.send({
+        user_id: 1,
+        user_name: "",
+        user_email: "",
+        user_password: "",
+        user_role: "",
+        sex: "MALE",
+        age: 34,
+    });
+})
 
 app.get('/user-profile', (req, res) => {
     res.send({
